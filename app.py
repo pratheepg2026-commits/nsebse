@@ -13,9 +13,7 @@ HEADERS = {
 @app.route("/corporate-actions")
 def corporate_actions():
     session = requests.Session()
-    # Step 1: Get cookies
     session.get("https://www.nseindia.com", headers=HEADERS, timeout=15)
-    # Step 2: Fetch data
     response = session.get(
         "https://www.nseindia.com/api/corporates-corporateActions?index=equities",
         headers=HEADERS,
@@ -25,10 +23,3 @@ def corporate_actions():
 
 if __name__ == "__main__":
     app.run()
-```
-
-### `requirements.txt`
-```
-flask
-requests
-gunicorn
